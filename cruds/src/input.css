@@ -25,3 +25,11 @@ input::placeholder{
 th{
   @apply p-thpadding
 }
+.popupBG{
+  display: none;
+  background-color: #0d0a11a4;
+}
+#YES,
+#NO{
+  @apply w-1/6 m-2 mb-5
+}

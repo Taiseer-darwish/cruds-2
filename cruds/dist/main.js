@@ -13,10 +13,14 @@ tbody= document.getElementById("tbody");
 //search=document.getElementById("search");
 searchBTN=document.getElementById("searchBTN");
 deleteAll= document.getElementById("deleteAll");
+popup= document.getElementById("popup");
+yesBTN= document.getElementById("YES");
+noBTN= document.getElementById("NO");
 x=true;
 let y;
+let pop;
 
-//console.log(deleteAll);
+//console.log(body);
 
 //getTotal
 function getTotal(){
@@ -110,24 +114,26 @@ function create() {
             <td>${allData[i].total}</td>
             <td>${allData[i].category}</td>
             <td><button onclick="upDate(${i})" id="upDate">upDate</button></td>
-            <td><button onclick="deleteData(${i})" id="Delete">Delete</button></td>
+            <td><button onclick="getpopup()" id="Delete">Delete</button></td>
         </tr>`
         }
         tbody.innerHTML= table;
-    }
 
-      //Delete all data S-1
+
+          //Delete all data S-1
       if( 0 < allData.length) {
-        deleteAll.innerHTML=`<button onclick="DeleteAll()">Delete All</button>`
+        deleteAll.innerHTML=`<button onclick="getpopup()">Delete All</button>`
      }else{
         deleteAll.innerHTML=``
      }
+    }
 
     //Run showdata function
     showdata()
 
     //Delete data
     function deleteData(i) {
+        pop=false;
         allData.splice(i,1)
         localStorage.product=JSON.stringify(allData);
         showdata()
@@ -136,8 +142,11 @@ function create() {
     
      //Delete all data S-2
     function DeleteAll(){
+      pop=true;
       localStorage.clear();
       allData.splice(0);
+      popup.style.display='none';
+      deleteAll.innerHTML=``
       showdata()
 }
     
@@ -183,3 +192,13 @@ function getsearch(){
         }
     }
 }
+    //getpopup
+    function getpopup(){
+        popup.style.display='block';
+    }
+
+    noBTN.addEventListener("click", function() {
+        popup.style.display = 'none';
+      });
+
+

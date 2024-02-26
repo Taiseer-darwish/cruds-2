@@ -5,9 +5,9 @@
     <link href="output.css" rel="stylesheet">
     <title>CRUDS</title>
 </head>
-<body class="bg-neutral-900 font-Tomorrow text-xs sm:text-xs md:text-base lg:text-xl">
+<body class="bg-neutral-900 font-Tomorrow text-xs sm:text-xs md:text-base lg:text-xl relative">
     <!-- start-layout --->
-    <div class="layout w-full sm:w-full md:w-4/5  m-auto  ">
+    <div id="layout" class="layout w-full sm:w-full md:w-4/5  m-auto relative ">
     <!-- start-header --->
         <div class="header text-center p-7">
             <h2 class=" font-semibold text-5xl text-slate-200  p-3">CRUDS</h2>
@@ -58,6 +58,15 @@
                 </tbody>
             </table>
         </div>
+        </div>
+    </div>
+    <div id="popup" class="popupBG w-full h-full absolute top-0">
+        <div  class=" m-auto bg-neutral-950 bg-opacity-100 sm:w-1/2 md:w-2/3 rounded-md border-violet-950 border-2 border-solid absolute top-1/2 left-1/2 translate-x-x translate-y-y">
+            <h1 class="p-3 pt-20 text-gray-400 sm:text-base md:text-lg lg:text-xl font-semibold ">Are you sure to delete all product ?</h1>
+           <div class="flex justify-end mt-12">
+            <button onclick="DeleteAll()" id="YES">YES</button>
+            <button id="NO">NO</button>
+           </div>
         </div>
     </div>
 </body>

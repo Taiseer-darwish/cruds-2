@@ -13,7 +13,11 @@ module.exports = {
        },
        padding:{
         thpadding:['3px']
-       }
+       },
+       translate:{
+        x:['-50%'],
+        y:['-50%'],
+       },
     },
   },
   plugins: [],
