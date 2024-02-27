@@ -10,14 +10,15 @@ category = document.getElementById("category");
 search= document.getElementById("search");
 createBTN= document.getElementById("create-btn");
 tbody= document.getElementById("tbody");
-//search=document.getElementById("search");
 searchBTN=document.getElementById("searchBTN");
 deleteAll= document.getElementById("deleteAll");
 popup= document.getElementById("popup");
 yesBTN= document.getElementById("YES");
 noBTN= document.getElementById("NO");
+popupH1= document.getElementById("popup-h1");
 x=true;
 let y;
+let d;
 let pop;
 
 //console.log(body);
@@ -114,7 +115,7 @@ function create() {
             <td>${allData[i].total}</td>
             <td>${allData[i].category}</td>
             <td><button onclick="upDate(${i})" id="upDate">upDate</button></td>
-            <td><button onclick="getpopup()" id="Delete">Delete</button></td>
+            <td><button onclick="del()" id="Delete">Delete</button></td>
         </tr>`
         }
         tbody.innerHTML= table;
@@ -122,7 +123,7 @@ function create() {
 
           //Delete all data S-1
       if( 0 < allData.length) {
-        deleteAll.innerHTML=`<button onclick="getpopup()">Delete All</button>`
+        deleteAll.innerHTML=`<button onclick="delAll()">Delete All</button>`
      }else{
         deleteAll.innerHTML=``
      }
@@ -133,7 +134,6 @@ function create() {
 
     //Delete data
     function deleteData(i) {
-        pop=false;
         allData.splice(i,1)
         localStorage.product=JSON.stringify(allData);
         showdata()
@@ -142,7 +142,6 @@ function create() {
     
      //Delete all data S-2
     function DeleteAll(){
-      pop=true;
       localStorage.clear();
       allData.splice(0);
       popup.style.display='none';
@@ -197,8 +196,29 @@ function getsearch(){
         popup.style.display='block';
     }
 
+    function delAll(){
+        pop=true;
+        popupH1.innerHTML=`Are you sure to delete ALL products ?`
+        getpopup()
+    }
+
+    function del(){
+        pop=false;
+        popupH1.innerHTML=`Are you sure to delete THIS product ?`
+        getpopup()
+    }
+
     noBTN.addEventListener("click", function() {
         popup.style.display = 'none';
       });
 
 
+    yesBTN.addEventListener("click", function() {
+        if(true === pop){
+            DeleteAll()
+            popup.style.display = 'none';
+        }else{
+            deleteData(y)
+            popup.style.display = 'none';
+        }
+      });
