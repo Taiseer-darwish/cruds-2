@@ -17,9 +17,7 @@ yesBTN= document.getElementById("YES");
 noBTN= document.getElementById("NO");
 popupH1= document.getElementById("popup-h1");
 x=true;
-"هنا عملت متغير فال جلوبال  " //////////////////////////    (1)
 let y;
-'-----------------------------------'
 let pop;
 
 //console.log(body);
@@ -71,7 +69,6 @@ function create() {
             allData.push(obj);
         }
     }else{
-        "علشان اعرف استخدمه هنا   " ///////////// ( 3)
         allData[y]=obj;
         x=true;
         createBTN.innerHTML='create'
@@ -117,7 +114,7 @@ function create() {
             <td>${allData[i].total}</td>
             <td>${allData[i].category}</td>
             <td><button onclick="upDate(${i})" id="upDate">upDate</button></td>
-            <td><button onclick="del()" id="Delete">Delete</button></td>
+            <td><button onclick="del(${i})"  id="Delete">Delete</button></td>
         </tr>`
         }
         tbody.innerHTML= table;
@@ -167,7 +164,6 @@ function upDate(i) {
         behavior:"smooth"
     })
     x=false;
-    "  ساويت المتغير هنا بال انديكس عشان اعرف استخمه فالخطوه التالته فوق  " // (2)
     y=i;
 }
 //search
@@ -205,10 +201,11 @@ function getsearch(){
         getpopup()
     }
 
-    function del(){
+    function del(i){
         pop=false;
         popupH1.innerHTML=`Are you sure to delete THIS product ?`
-        getpopup()
+        getpopup();
+        y=i;
     }
 
     noBTN.addEventListener("click", function() {
@@ -221,9 +218,7 @@ function getsearch(){
             DeleteAll()
             popup.style.display = 'none';
         }else{
-            " هنا بقي استخدمتها تاني علشان  "
-            '  لما بعمل كده ده مبيشتغلش'   //  deleteData(i)                    // (4)
-             deleteData(y)
+            deleteData(y)
             popup.style.display = 'none';
         }
       });
