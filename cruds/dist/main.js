@@ -17,8 +17,9 @@ yesBTN= document.getElementById("YES");
 noBTN= document.getElementById("NO");
 popupH1= document.getElementById("popup-h1");
 x=true;
+"هنا عملت متغير فال جلوبال  " //////////////////////////    (1)
 let y;
-let d;
+'-----------------------------------'
 let pop;
 
 //console.log(body);
@@ -70,6 +71,7 @@ function create() {
             allData.push(obj);
         }
     }else{
+        "علشان اعرف استخدمه هنا   " ///////////// ( 3)
         allData[y]=obj;
         x=true;
         createBTN.innerHTML='create'
@@ -159,12 +161,13 @@ function upDate(i) {
     count.style.display='none',
     category.value=allData[i].category,
     createBTN.innerHTML='up Date';
+    search.value='';
     scroll({
         top:0,
         behavior:"smooth"
     })
-
     x=false;
+    "  ساويت المتغير هنا بال انديكس عشان اعرف استخمه فالخطوه التالته فوق  " // (2)
     y=i;
 }
 //search
@@ -218,7 +221,9 @@ function getsearch(){
             DeleteAll()
             popup.style.display = 'none';
         }else{
-            deleteData(y)
+            " هنا بقي استخدمتها تاني علشان  "
+            '  لما بعمل كده ده مبيشتغلش'   //  deleteData(i)                    // (4)
+             deleteData(y)
             popup.style.display = 'none';
         }
       });
