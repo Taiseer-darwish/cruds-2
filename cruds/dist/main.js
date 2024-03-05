@@ -182,9 +182,10 @@ function getsearch(){
             <td>${allData[s].total}</td>
             <td>${allData[s].category}</td>
             <td><button onclick="upDate(${s})" id="upDate">upDate</button></td>
-            <td><button onclick="deleteData(${s})" id="Delete">Delete</button></td>
+            <td><button onclick="del(${s})" id="Delete">Delete</button></td>
         </tr>`
         tbody.innerHTML= table;
+        search.value='';
         }else{
         tbody.innerHTML= table;
         }
